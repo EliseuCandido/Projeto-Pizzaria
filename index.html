@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PizzaTec</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
+    integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+    integrity="sha512-KfhXbJct6YP7uy6JFvJT+UwF6Ez44GJ5E7Uz9SDmdfm8QgG4E4b0a0JAOwbxEojWfZPaTO5S7g1q3J3VkpArWw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/png" href="img/pizzalogo.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<!-- NAV BAR ---- COM DADOS DA LOJA, HOME , LOJA LOCAL , CONTACTO E CONTA CLIENTE -->
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="img/pizzalogo.png" alt="" width="50px"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link boasvindas" href="#" id="link-home"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link produtos-letra" href="#sobrenos" data-section="sobrenos" onclick="selectNavItem(event)">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#loja">Loja</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contacto">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a id="logout-span" class="nav-link" href="login.html">Fazer Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+
+  <div id="carousel-container">
+    <div id="carousel" class="carousel" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="gif/pizzaporta.gif" alt="Gif" data-time="6000"
+            style="width: 100%; max-height: 200px; min-height: 60px; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+          <img src="gif/promocao.gif" alt="Descrição do GIF" data-time="13000"
+            style="width: 100%; max-height: 200px; min-height: 60px; object-fit: cover;">
+        </div>
+        <div class="carousel-item">
+          <img src="gif/pizzasdeliciosas.gif" alt="Descrição do GIF" data-time="12000"
+            style="width: 100%; max-height: 200px; min-height: 60px; object-fit: cover;">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Anterior</span>
+      </a>
+      <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Próximo</span>
+      </a>
+    </div>
+  </div>
+
+
+
+
+  <ul class="nav justify-content-center produtos-2">
+    <li class="nav-item">
+      <a class="nav-link produtos-letra active" href="#" data-section="pizzas" onclick="selectNavItem(event)">Pizzas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link produtos-letra" href="#" data-section="bebidas" onclick="selectNavItem(event)">Bebidas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link produtos-letra" href="#" data-section="sobremesas"
+        onclick="selectNavItem(event)">Sobremesas</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link produtos-letra" href="#" data-section="promocoes" onclick="selectNavItem(event)">Promoções</a>
+    </li>
+  </ul>
+
+
+
+  <div class="col">
+    <!-- carrinho de compras  -->
+    <div class="contcarrinho">
+      <div id="iconeCarrinho" onclick="toggleCarrinho()">
+        <span id="contadorCarrinho" class="contador-carrinho"></span>
+        <i id="iconeCarrinhoImg" class="bi bi-cart-fill"></i>
+      </div>
+    </div>
+
+
+    <div id="carrinhoOverlay" onclick="toggleCarrinho()" style="display: none;">
+    </div>
+    <div id="carrinho" onclick="event.stopPropagation();" class="bg-white p-4 rounded shadow">
+      <div class="close-btn" onclick="toggleCarrinho()">&times;</div>
+      <h2>Carrinho de Compras</h2>
+      <ul id="listaCarrinho" class="list-group list-group-flush">
+        <!-- Os itens do carrinho serão adicionados aqui via JavaScript -->
+      </ul>
+    </div>
+    <div id="totalCarrinho" style="display:none; ">
+      <h4>Total do Carrinho: R$ <span id="valorTotal">0.00</span></h4>
+    </div>
+
+
+
+    <div class="container" id="deixarcinzaProdutos">
+
+    <!-- ---------- SOBRE NÓS -------- -->
+    <div id="sobrenos" class="produtos-section">
+      <div class="col-10" style="text-align: center; align-items: center; margin: 0 auto;">
+        <div class="card mb-4">
+          <div class="card-body" style="width: 100%; font-family: 'Oswald', sans-serif; font-size: x-large;">
+            <p>A PizzaTec é uma pizzaria inovadora localizada em Palmela, Portugal, que se destaca pela sua excepcional combinação de sabor e tecnologia. Fundada por um jovem e talentoso empreendedor de apenas 22 anos, a PizzaTec rapidamente conquistou o coração dos amantes da pizza na região.</p>
+            <br>
+            <p>Nossa equipe altamente qualificada utiliza ingredientes frescos e de alta qualidade, garantindo o sabor autêntico e delicioso das nossas pizzas. Além disso, a PizzaTec está sempre em busca das últimas tendências em tecnologia e automação, proporcionando aos clientes uma experiência única e conveniente ao fazer seus pedidos.</p>
+            <br>
+            <p>Na PizzaTec, acreditamos em fornecer um serviço excepcional e uma experiência inesquecível para nossos clientes. Venha nos visitar e descubra o motivo pelo qual somos considerados uma das melhores pizzarias de Palmela. Sinta o sabor da inovação na PizzaTec e deixe-nos surpreendê-lo!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+      <div id="pizzas" class="produtos-section active">
+
+        <div id="produtos">
+          <h2 class="mb-4"></h2>
+          <div class="row">
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <!-- Imagem do produto 1 -->
+                <img src="img/pizzas/Salami.png" id="imgProduto1" alt="Produto 1" class="card-img-top">
+                <div class="card-body">
+                  <!-- Nome do produto 1 -->
+                  <h3 class="card-title">Pizza Salami</h3>
+                  <!-- Ingredientes do produto 1 -->
+                  <p class="card-ingredients">Ingredientes: Tomates, Salami e Azeitonas</p>
+                  <!-- Preço do produto 1 -->
+                  <p class="card-text">Preço: €8,50</p>
+                  <!-- Botão para adicionar o produto 1 ao carrinho -->
+                  <button onclick="adicionarCarrinho(1, 'Pizza Salami', 8.50, document.getElementById('imgProduto1'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <!-- Imagem do produto 2 -->
+                <img src="img/pizzas/cheese.png" id="imgProduto2" alt="Produto 2" class="card-img-top">
+                <div class="card-body">
+                  <!-- Nome do produto 2 -->
+                  <h3 class="card-title">Pizza de Queijo</h3>
+                  <!-- Ingredientes do produto 2 -->
+                  <p class="card-ingredients">Ingredientes: Queijo, Tomate</p>
+                  <!-- Preço do produto 2 -->
+                  <p class="card-text">Preço: €10,00</p>
+                  <!-- Botão para adicionar o produto 2 ao carrinho -->
+                  <button
+                    onclick="adicionarCarrinho(2, 'Pizza de Queijo', 10.00, document.getElementById('imgProduto2'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <!-- Imagem do produto 3 -->
+                <img src="img/pizzas/Pepperoni.png" id="imgProduto3" alt="Produto 3" class="card-img-top">
+                <div class="card-body">
+                  <!-- Nome do produto 3 -->
+                  <h3 class="card-title">Pizza Pepperoni</h3>
+                  <!-- Ingredientes do produto 3 -->
+                  <p class="card-ingredients">Ingredientes: Tomate, Queijo Mussarela, Pepperoni e Cogumelos</p>
+                  <!-- Preço do produto 3 -->
+                  <p class="card-text">Preço: €11,50</p>
+                  <!-- Botão para adicionar o produto 3 ao carrinho -->
+                  <button
+                    onclick="adicionarCarrinho(3, 'Pizza Pepperoni', 11.50, document.getElementById('imgProduto3'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/pizzas/chicken.png" id="imgProduto4" alt="Produto 5" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Pizza de Frango</h3>
+                  <p class="card-ingredients">Ingredientes: Frango, Cogumelos e Especiarias</p>
+                  <p class="card-text">Preço: €12,00</p>
+                  <button
+                    onclick="adicionarCarrinho(4, 'Pizza de Frango', 12.00, document.getElementById('imgProduto4'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/pizzas/vegetal.png" id="imgProduto5" alt="Produto 5" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Pizza Vegetariana</h3>
+                  <p class="card-ingredients">Ingredientes: Azeitona, Legumes, Queijo Derretido</p>
+                  <p class="card-text">Preço: €11,00</p>
+                  <button
+                    onclick="adicionarCarrinho(5, 'Pizza Vegetariana', 11.00, document.getElementById('imgProduto5'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/pizzas/pizzadoce.png" id="imgProduto6" alt="Produto 6" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Pizza Doce</h3>
+                  <p class="card-ingredients">Ingredientes: Chocolate, Morango</p>
+                  <p class="card-text">Preço: €15,00</p>
+                  <button onclick="adicionarCarrinho(6, 'Pizza Doce', 15.00, document.getElementById('imgProduto6'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+      <!----------------------- BEBIDAS ---------------------------->
+      <div id="bebidas" class="produtos-section">
+        <div id="produtos">
+          <h2 class="mb-4"></h2>
+          <div class="row">
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Bebidas/cocacola.png" id="imgProduto7" alt="Produto 7" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Coca Cola</h3>
+                  <p class="card-text">Preço: €1,69</p>
+                  <button onclick="adicionarCarrinho(7, 'Coca Cola', 1.69, document.getElementById('imgProduto7'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Bebidas/pepsi.png" id="imgProduto8" alt="Produto 8" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Pepsi</h3>
+                  <p class="card-text">Preço: €1,67</p>
+                  <button onclick="adicionarCarrinho(8, 'Pepsi', 1.67, document.getElementById('imgProduto8'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Bebidas/fanta.png" id="imgProduto9" alt="Produto 9" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Fanta Laranja</h3>
+                  <p class="card-text">Preço: €1,69</p>
+                  <button onclick="adicionarCarrinho(9, 'Fanta Laranja', 1.69, document.getElementById('imgProduto9'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Bebidas/sumo.png" id="imgProduto10" alt="Produto 10" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Sumo de Laranja</h3>
+                  <p class="card-text">Preço: €1,65</p>
+                  <button
+                    onclick="adicionarCarrinho(10, 'Sumo de Laranja', 1.65, document.getElementById('imgProduto10'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Bebidas/monster.png" id="imgProduto11" alt="Produto 11" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Monster</h3>
+                  <p class="card-text">Preço: €1,59</p>
+                  <button onclick="adicionarCarrinho(11, 'Monster', 1.59, document.getElementById('imgProduto11'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Bebidas/redbul.png" id="imgProduto12" alt="Produto 12" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Redbull</h3>
+                  <p class="card-text">Preço: €1,39</p>
+                  <button onclick="adicionarCarrinho(12, 'Redbull', 1.39, document.getElementById('imgProduto12'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!------------------------------- SOBREMESAS ---------------------------------------------------- -->
+      <div id="sobremesas" class="produtos-section">
+        <div id="produtos">
+          <h2 class="mb-4"></h2>
+          <div class="row">
+
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Sobremesas/Cheesecake.png" id="imgProduto13" alt="Produto 13" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Cheesecake</h3>
+                  <p class="card-text">Preço: €6,00</p>
+                  <button
+                    onclick="adicionarCarrinho(13, 'Cheesecake de Morango', 6.00, document.getElementById('imgProduto13'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Sobremesas/Acai.png" id="imgProduto14" alt="Produto 14" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Açaí</h3>
+                  <p class="card-text">Preço: €8,00</p>
+                  <button onclick="adicionarCarrinho(14, 'Açaí', 8.00, document.getElementById('imgProduto14'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Sobremesas/Sundae.png" id="imgProduto15" alt="Produto 15" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Sundae</h3>
+                  <p class="card-text">Preço: €2,00</p>
+                  <button onclick="adicionarCarrinho(15, 'Sundae', 2.00, document.getElementById('imgProduto15'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- --------------- PROMOCOES -------------------- -->
+      <div id="promocoes" class="produtos-section">
+        <div id="produtos">
+          <h2 class="mb-4"></h2>
+          <div class="row">
+
+
+            <div class="col-12 col-sm-6 col-md-4">
+              <div class="card mb-4">
+                <img src="img/Promocao/1leve2.png" id="imgProduto18" alt="Produto 18" class="card-img-top">
+                <div class="card-body">
+                  <h3 class="card-title">Pizzas</h3>
+                  <p class="card-text">04-2023 A 05-2023</p>
+                  <button
+                    onclick="adicionarCarrinho(18, 'Compre1Leve2', 10.00, document.getElementById('imgProduto18'))"
+                    class="btn btn-primary AdicionarCor border border-light">Adicionar ao Carrinho</button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer mt-auto py-3 AdicionarCorFooter">
+    <div class="container">
+      <div class="row" style="align-items: center;">
+        <div class="col-md-4 d-flex justify-content-center">
+          <div class="rounded-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d779.7432139171924!2d-9.004531030163571!3d38.58047290000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd194622e5ad46d1%3A0x123b3f86b5ed915a!2sATEC%20-%20Academia%20de%20Forma%C3%A7%C3%A3o%20-%20Palmela!5e0!3m2!1spt-BR!2spt!4v1681570855575!5m2!1spt-BR!2spt"
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              width="150" height="150"></iframe>
+          </div>
+        </div>
+        <div class="col-md-4 justify-content-center" id="loja">
+          <h5>Loja</h5>
+          <p>
+            Endereço: Quinta da Marqueza - Palmela, Parque Industrial da Volkswagen Autoeuropa<br>
+            Codigo Postal: 2950-557
+          </p>
+        </div>
+        <div class="col-md-4" id="contacto">
+          <h5>Contacto</h5>
+          <p>
+            Telefone: (351) 1234-5678<br>
+            E-mail: faleconnosco@pizzatec.com<br>
+            Horário de funcionamento: Seg-Sex, 10h às 22h
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

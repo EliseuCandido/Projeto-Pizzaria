@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login PizzaTec</title>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styleslogin.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="img/pizzalogo.png">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"><img src="img/pizzalogo.png" alt="" width="50px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link produtos-letra" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#loja">Loja</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contacto">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a id="logout-span" class="nav-link" href="login.html">Fazer Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+    <!-- Container que possui o formulário de login -->
+    <div class="formulario-login">
+        <!-- Formulário de login -->
+        <form action="#" method="post" id="login-form">
+            <div><img src="img/PizzaLogin.jpg" alt="" style="max-width: 100%; height: auto;"></div>
+            <!-- Título do formulário -->
+            <h2 class="titulo-formulario text-center">Faça seu login</h2>
+            <!-- Botões de login com as redes sociais -->
+            <div class="botoes-sociais text-center">
+                <!-- Botão para login com Google -->
+                <a href="#" class="btn btn-danger btn-block"
+                    onclick="alert('O login com o Google está em manutenção. Tente novamente mais tarde.')">
+                    <i class="fa fa-google"></i> Fazer login com <b>Google</b>
+                </a>
+            </div>
+            <!-- Separador "ou" entre os botões de login -->
+            <div class="separador-ou"><i>ou</i></div>
+            <!-- Campo de nome de usuário -->
+            <div class="form-group">
+                <div class="input-group icone-input">
+                    <input type="text" class="form-control" name="username" placeholder="Usuário" required="required"
+                        id="username">
+                </div>
+            </div>
+            <!-- Campo de senha -->
+            <div class="form-group">
+                <div class="input-group icone-input">
+                    <input type="password" class="form-control" name="password" placeholder="Senha" required="required">
+                </div>
+            </div>
+            <!-- Botão de submit -->
+            <div class="form-group">
+                <button type="submit" class="btn btn-danger btn-block botao-formulario">Entrar</button>
+            </div>
+            <!-- Checkbox para lembrar-me -->
+            <div class="clearfix">
+                <label class="checkbox-inline pull-left"><input type="checkbox"> Lembrar-me</label>
+                <!-- Link para esqueci minha senha -->
+                <a href="#" class="pull-right" style="color: #d21a00;">Esqueceu sua senha?</a>
+            </div>
+        </form>
+        <!-- Texto para incentivar o cadastro -->
+        <div class="texto-dica small" style="color: rgb(0, 0, 0);">Ainda não tem uma conta? <a href="#"
+                style="color: #00a50b;" >Cadastre-se agora!</a>
+        </div>
+    </div>
+
+    <!-- Script para lidar com o envio do formulário -->
+    <script>
+        // Adiciona um listener para o evento submit do formulário
+        document.getElementById("login-form").addEventListener("submit", function (event) {
+            // Impede que o formulário seja enviado para a página padrão de ação
+            event.preventDefault();
+            // Armazena o nome de usuário inserido no armazenamento local do navegador
+            const username = document.querySelector('#username').value;
+            localStorage.setItem('username', username);
+            // Redireciona o usuário para a página index.html após o login
+            window.location.href = 'index.html';
+        });
+    </script>
+
+
+<footer class="footer mt-auto py-3 AdicionarCorFooter">
+    <div class="container">
+      <div class="row" style="align-items: center;">
+        <div class="col-md-4 d-flex justify-content-center">
+          <div class="rounded-map">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d779.7432139171924!2d-9.004531030163571!3d38.58047290000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd194622e5ad46d1%3A0x123b3f86b5ed915a!2sATEC%20-%20Academia%20de%20Forma%C3%A7%C3%A3o%20-%20Palmela!5e0!3m2!1spt-BR!2spt!4v1681570855575!5m2!1spt-BR!2spt"
+              style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              width="150" height="150"></iframe>
+          </div>
+        </div>
+        <div class="col-md-4 justify-content-center" id="loja">
+          <h5>Loja</h5>
+          <p>
+            Endereço: Quinta da Marqueza - Palmela, Parque Industrial da Volkswagen Autoeuropa<br>
+            Codigo Postal: 2950-557
+          </p>
+        </div>
+        <div class="col-md-4" id="contacto">
+          <h5>Contacto</h5>
+          <p>
+            Telefone: (351) 1234-5678<br>
+            E-mail: faleconnosco@pizzatec.com<br>
+            Horário de funcionamento: Seg-Sex, 10h às 22h
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>

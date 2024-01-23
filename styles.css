@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Nabla&family=Oswald:wght@200;300;400&display=swap');
+/* LETRA DE BOASVINDAS */
+.boasvindas {
+  size: 2em;
+  color: #333333 !important;
+}
+
+
+/* Estilos do Navbar */
+.navbar-css {
+  background-color: rgb(122, 122, 122);
+}
+
+.navbar a {
+  color: aliceblue;
+}
+
+/* ICONE CART */
+.icon-cart {
+  margin-left: 5%;
+}
+
+
+
+/* Estilos do menu de produtos */
+.produtos-2 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 15px;
+  margin: 0;
+  background-color: #ffba3bea;
+  box-shadow: inset 0px 6px 20px 0px #f40303;
+}
+
+.produtos-2 li {
+  margin: 0 10px;
+
+  list-style: none;
+}
+
+.produtos-letra {
+  color: inherit;
+  text-decoration: none;
+}
+
+.produtos-2 {
+  font-weight: 500;
+  color: #1b1b1b;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.produtos-2 a:hover {
+  text-decoration: none;
+  color: #fff;
+  text-shadow: 0 0 5px #f40303,
+    0 0 25px #f40303,
+    0 0 50px #f40303,
+    0 0 100px #f40303;
+}
+
+/* Estilos do Carrossel */
+#carousel-container .carousel-control-prev,
+#carousel-container .carousel-control-next {
+  opacity: 0.2;
+}
+
+#carousel-container:hover .carousel-control-prev,
+#carousel-container:hover .carousel-control-next {
+  opacity: 0.7;
+}
+
+/* Estilos dos produtos */
+.produtos-section {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+/* Arredondar as bordas das imagens */
+.card-img-top {
+  border-radius: 50%;
+}
+
+/* Estilos do overlay do carrinho */
+#carrinhoOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos do carrinho */
+#carrinho {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  display: none;
+}
+
+/* Personalizar o botão de fechar carrinho */
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* Estilos da animação do carrinho */
+.animatedImage {
+  position: fixed;
+  z-index: 999;
+  pointer-events: none;
+  transform-origin: 0 0;
+  transition: transform 0.8s, opacity 1s;
+}
+
+/* DEIXAR OPACO OS ITENS */
+.disabled-products {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.contcarrinho {
+  display: flex;
+  justify-content: right;
+  padding-right: 2%;
+  margin-top: -15px;
+  transform: translateY(20px);
+
+}
+
+#iconeCarrinho {
+  text-align: center;
+  cursor: pointer;
+}
+
+
+/* CARRINHO NUMERO DE ITENS NO CARRINHO */
+
+.contador-carrinho {
+  position: absolute;
+  top: -10px;
+  right: 2px;
+  background-color: rgba(255, 0, 0, 0.808);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 50%;
+  display: none;
+}
+
+/* DESTACAR PAGINA QUE O CLIENTE ESTÁ */
+
+.produtos-2 .nav-link.selected {
+  box-shadow: inset -1px -18px 20px 0px #ffffff, inset 0px 9px 12px 0px #f40303, inset 0px 20px 20px 0px #ffffff, inset 2px 20px 4px 0px #ffffff;
+  border-top: #030000 solid 13px;
+  border-top-left-radius: 70%;
+  border-top-right-radius: 70%;
+  background-color: #ffffff;
+  /* Mude a cor de acordo com sua preferência */
+}
+
+
+/* NOME, SABORES , PREÇOS , DESIGN */
+.card {
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.card-text {
+  font-size: 14px;
+  color: #666;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.card-ingredients {
+  font-size: 14px;
+  color: #888;
+  text-align: center;
+  margin-bottom: 0;
+  height: 50px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+
+
+/* Cores do botao Adicionar ao Carrinho */
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active:focus {
+  box-shadow: 0 0 0 0.2rem rgba(143, 143, 143, 0.5) !important;
+}
+
+.btn-primary {
+  background-color: #020202 !important;
+  border-color: #bbbbbb !important;
+  color: #fff;
+}
+
+.AdicionarCor:hover {
+  background-color: #f40303 !important;
+
+}
+
+
+/* RODAPE MINIMAPA */
+.rounded-map {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 150px;
+  height: 150px;
+}
+
+.AdicionarCorFooter {
+  color: #bbbbbb;
+  background-color: #000000;
+}

@@ -1,0 +1,100 @@
+body {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.btn-danger {
+    border: rgb(99, 99, 99) !important;
+    background-color: black !important;
+}
+
+.formulario-login {
+    /* Define o tamanho do container do formulário de login */
+    width: 340px;
+    /* Centraliza o container na página */
+    margin: 30px auto;
+}
+
+.formulario-login form {
+    /* Adiciona margem inferior ao formulário */
+    margin-bottom: 15px;
+    /* Define a cor de fundo do formulário */
+    background: #f7f7f7;
+    /* Adiciona sombreamento ao formulário */
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    /* Adiciona padding ao formulário */
+    padding: 30px;
+}
+
+.formulario-login h2 {
+    /* Remove a margem superior do título */
+    margin: 0 0 15px;
+}
+
+.formulario-login .hint-text {
+    /* Define a cor do texto de dica */
+    color: #777;
+    /* Adiciona margem inferior ao texto de dica */
+    padding-bottom: 15px;
+    /* Centraliza o texto de dica */
+    text-align: center;
+}
+
+.form-control,
+.btn {
+    /* Define o tamanho mínimo dos elementos de formulário e botões */
+    min-height: 38px;
+    /* Adiciona borda arredondada aos elementos de formulário e botões */
+    border-radius: 2px;
+}
+
+.login-btn {
+    /* Define o tamanho da fonte do botão de login */
+    font-size: 15px;
+    /* Deixa o texto do botão de login em negrito */
+    font-weight: bold;
+}
+
+.or-separador {
+    /* Adiciona margem ao separador "ou" */
+    margin: 20px 0 10px;
+    /* Centraliza o separador "ou" */
+    text-align: center;
+    /* Adiciona uma borda superior ao separador "ou" */
+    border-top: 1px solid #ccc;
+}
+
+.or-separador i {
+    /* Adiciona padding ao ícone do separador "ou" */
+    padding: 0 10px;
+    /* Define a cor de fundo do ícone do separador "ou" */
+    background: #f7f7f7;
+    /* Posiciona o ícone do separador "ou" */
+    position: relative;
+    top: -11px;
+    z-index: 1;
+}
+
+.botao-social .btn {
+    /* Adiciona margem aos botões de login com as redes sociais */
+    margin: 10px 0;
+    /* Define o tamanho da fonte dos botões de login com as redes sociais */
+    font-size: 15px;
+    /* Alinha o texto dos botões de login com as redes sociais à esquerda */
+    text-align: left;
+    /* Define a altura da linha dos botões de login com as redes sociais */
+    line-height: 24px;
+}
+
+.botao-social .btn i {
+    /* Alinha o ícone dos botões de login com as redes sociais à esquerda */
+    float: left;
+    /* Adiciona margem ao ícone dos botões de login com as redes sociais */
+    margin: 4px 15px 0 5px;
+    /* Define o tamanho mínimo do ícone dos botões de login com as redes sociais */
+    min-width: 15px;
+}
+
+.input-group-addon .fa {
+    /* Define o tamanho da fonte dos ícones do formulário de login */
+    font-size: 18px;
+}
